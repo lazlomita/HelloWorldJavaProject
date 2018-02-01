@@ -1,0 +1,53 @@
+<?xml version = "1.0"?>
+<project name = "Hello World Project" default = "info">
+	<property file = "build.properties"/>	
+	<property name = "property1" value = "proeperty 1 value"/>
+	<property name = "property2" value = "proeperty 2 value"/>
+
+	<target name = "info"  depends = "info2, info3, info4">
+		<echo>Hello World - Welcome to Apache Ant!</echo>
+	</target>
+	
+	<target  name = "info1">
+		<echo>** Predefined build properties **</echo>
+		<echo>ant.file The full location of the build file. ${ant.file}</echo>
+		<echo>ant.version The version of the Apache Ant installation. ${ant.version}</echo>
+		<echo>basedir The basedir of the build, as specified in the basedir attribute of the project element. ${basedir}</echo>
+		<echo>ant.java.version The version of the JDK that is used by Ant. ${ant.java.version}</echo>
+		<echo>ant.project.name The name of the project, as specified in the name atrribute of the project element. ${ant.project.name}</echo>
+		<echo>ant.project.default-target The default target of the current project. ${ant.project.default-target}</echo>
+		<echo>ant.project.invoked-targets Comma separated list of the targets that were invoked in the current project. ${ant.project.invoked-targets}</echo>
+		<echo>ant.core.lib The full location of the Ant jar file. ${ant.core.lib}</echo>
+		<echo>ant.home The home directory of Ant installation. ${ant.home}</echo>
+		<echo>ant.library.dir The home directory for Ant library files - typically ANT_HOME/lib folder. ${ant.library.dir}</echo>		
+	</target>
+		
+	<target  name = "info2" depends = "info1">
+		<echo>** Predefined build properties ONLY VALUES **</echo>
+		<echo>${ant.file}</echo>
+		<echo>${ant.version}</echo>
+		<echo>${basedir}</echo>
+		<echo>${ant.java.version}</echo>
+		<echo>${ant.project.name}</echo>
+		<echo>${ant.project.default-target}</echo>
+		<echo>${ant.project.invoked-targets}</echo>
+		<echo>${ant.core.lib}</echo>
+		<echo>${ant.home}</echo>
+		<echo>${ant.library.dir}</echo>		
+	</target>
+
+	<target  name = "info3">
+		<echo>** System properties **</echo>
+		<echo>file.separator: ${file.separator}</echo>
+		<echo>** Local properties **</echo>
+		<echo>property1: ${property1}</echo>		
+		<echo>property2: ${property2}</echo>
+	</target>
+	
+	<target  name = "info4">
+		<echo>** External file build.properties properties **</echo>
+		<echo>${sitename}</echo>
+		<echo>${buildversion}</echo>		
+	</target>
+	
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name = "Hello World Project" default = "all">
+	
+	<property file = "build.properties"/>
+
+	<target name = "all"  depends = "info 1">
+		<echo>Complied by Lazlo</echo>
+	</target>
+	
+	<target  name = "info 1" description = "External file build.properties properties displayed">
+		<echo>${projname}</echo>
+		<echo>${projhome=/Dev/kuvata}</echo>
+		<echo>${projhome.custom}</echo>
+		<echo>${projhome.parkMediaDevice}</echo>
+		<echo>${web.dir}</echo>
+		<echo>${web.dispatcher.dir}</echo>
+		<echo>${buildhome}</echo>
+		<echo>${buildhome.custom}</echo>
+		<echo>${disthome}</echo>
+		<echo>${disthome.jboss}</echo>
+		<echo>${disthome.dispatcher}</echo>
+		<echo>${installhome}</echo>
+		<echo>${installhome.jboss.home}</echo>
+		<echo>${installhome.jboss.base.server}</echo>
+		<echo>${installhome.jboss.base.webapp}</echo>
+		<echo>${installhome.jboss.dispatcher.server}</echo>
+		<echo>${installhome.jboss.dispatcher.webapp}</echo>
+	</target>
+	
+</project>
