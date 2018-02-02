@@ -27,4 +27,63 @@
 		<echo>${installhome.jboss.dispatcher.webapp}</echo>
 	</target>
 	
+	<target name = "print-ant.version">
+        <echo>${ant.version}</echo>
+    </target>
+
+	<target name = "print-build.sysclasspath">
+        <echo>${build.sysclasspath}</echo>
+    </target>
+	
+	
+	
+	<!-- D:\DEV_PM\HelloWorldJavaProject\src\avantica\java\util -->
+	<property name="path.source.util"      value="/DEV_PM/HelloWorldJavaProject/src/avantica/java/util"/>
+	<property name="path.source.functions" value="/DEV_PM/HelloWorldJavaProject/src/avantica/java/functions"/>
+	<property name="path.source.main" value="/DEV_PM/HelloWorldJavaProject/src/avantica/java/examples"/>
+	<property name="path.destination.all"   value="/DEV_PM/HelloWorldJavaProject/toexport"/>
+	
+	<target name="clean">
+		<delete dir="${path.destination.all}"/>	
+	</target>
+	
+	<target name="init" depends = "clean">
+		<mkdir dir="${path.destination.all}"/>				
+	</target>
+	
+	<target name="compile" depends = "init">
+		<javac srcdir="${path.source.util}:${path.source.functions}" destdir="${path.destination.all}" debug="on" debuglevel="lines,vars,source" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="compile1" depends = "init">
+		<javac srcdir="${path.source.functions}:${path.source.util}" destdir="${path.destination.all}" debug="true" debuglevel="lines" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="compile2" depends = "init">
+		<javac srcdir="${path.source.util}:${path.source.functions}" destdir="${path.destination.all}" debug="true" debuglevel="vars" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="compile3" depends = "init">
+		<javac 
+			srcdir="${path.source.util}:${path.source.functions}" 
+			destdir="${path.destination.all}" 
+			debug="true" 
+			debuglevel="source"
+			includeantruntime="false">
+		</javac>
+	</target>
+	
+	<target name="compile4" depends = "init">
+		<javac srcdir="${path.source.util}" destdir="${path.destination.all}" debug="on" debuglevel="lines,vars,source" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="compile5" depends = "init">
+		<javac srcdir="${path.source.functions}" destdir="${path.destination.all}" debug="on" debuglevel="lines,vars,source" includeantruntime="false">
+		</javac>
+	</target>
+	
 </project>

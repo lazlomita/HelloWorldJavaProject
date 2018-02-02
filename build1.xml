@@ -4,12 +4,11 @@
 	<property name = "property1" value = "proeperty 1 value"/>
 	<property name = "property2" value = "proeperty 2 value"/>
 
-	<target name = "info"  depends = "info2, info3, info4">
+	<target name = "info"  depends = "info 2, info 3, info 4">
 		<echo>Hello World - Welcome to Apache Ant!</echo>
 	</target>
 	
-	<target  name = "info1">
-		<echo>** Predefined build properties **</echo>
+	<target  name = "info 1" description = "Predefined build properties">
 		<echo>ant.file The full location of the build file. ${ant.file}</echo>
 		<echo>ant.version The version of the Apache Ant installation. ${ant.version}</echo>
 		<echo>basedir The basedir of the build, as specified in the basedir attribute of the project element. ${basedir}</echo>
@@ -22,8 +21,7 @@
 		<echo>ant.library.dir The home directory for Ant library files - typically ANT_HOME/lib folder. ${ant.library.dir}</echo>		
 	</target>
 		
-	<target  name = "info2" depends = "info1">
-		<echo>** Predefined build properties ONLY VALUES **</echo>
+	<target  name = "info 2" depends = "info 1" description = "Predefined build properties ONLY VALUES">
 		<echo>${ant.file}</echo>
 		<echo>${ant.version}</echo>
 		<echo>${basedir}</echo>
@@ -36,16 +34,13 @@
 		<echo>${ant.library.dir}</echo>		
 	</target>
 
-	<target  name = "info3">
-		<echo>** System properties **</echo>
+	<target  name = "info 3" description = "System properties and Local file properties">
 		<echo>file.separator: ${file.separator}</echo>
-		<echo>** Local properties **</echo>
 		<echo>property1: ${property1}</echo>		
 		<echo>property2: ${property2}</echo>
 	</target>
 	
-	<target  name = "info4">
-		<echo>** External file build.properties properties **</echo>
+	<target  name = "info 4" description = "file build.properties properties">
 		<echo>${sitename}</echo>
 		<echo>${buildversion}</echo>		
 	</target>
